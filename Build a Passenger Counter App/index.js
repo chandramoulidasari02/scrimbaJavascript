@@ -1,11 +1,12 @@
-// let bonusPoints = 50
-// console.log(bonusPoints)
 
-// bonusPoints += 50
-// console.log(bonusPoints)
+let count = 0;
 
-// bonusPoints -= 75
-// console.log(bonusPoints)
+function increment() {
+    count += 1;
+    document.getElementById("count").textContent = count;
+}
 
-// bonusPoints += 45
-// console.log(bonusPoints)
+function save() {
+    console.log(count);
+    // You can add more save functionality here
+}
