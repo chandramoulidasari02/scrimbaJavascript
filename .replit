@@ -22,24 +22,6 @@ args = "node index.js"
 task = "shell.exec"
 args = "node server.js"
 
-[[workflows.workflow]]
-name = "Test"
-mode = "sequential"
-author = 24962583
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node Challenges/Test.js"
-
-[[workflows.workflow]]
-name = "Code"
-mode = "sequential"
-author = 24962583
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node Codes *.js"
-
 [[ports]]
 localPort = 5000
 externalPort = 80
