@@ -11,6 +11,16 @@ const server = http.createServer((req, res) => {
     filePath = '/Build a Passenger Counter App/index.css';
   }
   
+  // Handle JavaScript files
+  if (req.url === '/index.js') {
+    filePath = '/Build a Passenger Counter App/index.js';
+  }
+  
+  // Handle image files
+  if (req.url === '/station.jpg') {
+    filePath = '/Build a Passenger Counter App/station.jpg';
+  }
+  
   const fullPath = path.join(__dirname, filePath);
   
   fs.readFile(fullPath, (err, data) => {
@@ -25,7 +35,11 @@ const server = http.createServer((req, res) => {
     const contentType = {
       '.html': 'text/html',
       '.css': 'text/css',
-      '.js': 'application/javascript'
+      '.js': 'application/javascript',
+      '.jpg': 'image/jpeg',
+      '.jpeg': 'image/jpeg',
+      '.png': 'image/png',
+      '.gif': 'image/gif'
     }[ext] || 'text/plain';
     
     res.writeHead(200, { 'Content-Type': contentType });
