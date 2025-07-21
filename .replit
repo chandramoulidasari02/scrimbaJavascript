@@ -9,10 +9,23 @@ run = ["sh", "-c", "node index.js"]
 [workflows]
 
 [[workflows.workflow]]
-name = "webpage"
-mode = "parallel"
+name = "Preview HTML"
+author = 24962583
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node server.js"
+
+[[workflows.workflow]]
+name = "Js"
+mode = "sequential"
 author = 24962583
 
 [[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "webpage"
+task = "shell.exec"
+args = "node index.js"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
