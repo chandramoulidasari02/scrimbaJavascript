@@ -7,24 +7,38 @@ channel = "stable-24_05"
 run = ["sh", "-c", "node index.js"]
 
 [workflows]
+runButton = "Test"
 
 [[workflows.workflow]]
-name = "Preview HTML"
+name = "Run Both"
 author = 24962583
-mode = "sequential"
+mode = "parallel"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node index.js"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "node server.js"
 
 [[workflows.workflow]]
-name = "Js"
+name = "Test"
 mode = "sequential"
 author = 24962583
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node index.js"
+args = "node Challenges/Test.js"
+
+[[workflows.workflow]]
+name = "Code"
+mode = "sequential"
+author = 24962583
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node Codes *.js"
 
 [[ports]]
 localPort = 5000
