@@ -7,7 +7,7 @@ channel = "stable-24_05"
 run = ["sh", "-c", "node index.js"]
 
 [workflows]
-runButton = "Test"
+runButton = "Run Both"
 
 [[workflows.workflow]]
 name = "Run Both"
